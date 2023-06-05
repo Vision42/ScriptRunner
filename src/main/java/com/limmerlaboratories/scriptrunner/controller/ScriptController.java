@@ -30,4 +30,9 @@ public class ScriptController {
         return scriptRunnerService.runScriptById(id);
     }
 
+    @GetMapping(path = "info/{id}")
+    public Script getScript(@PathVariable("id") int id) {
+        return scriptRepository.findById(id).orElse(null);
+    }
+
 }
