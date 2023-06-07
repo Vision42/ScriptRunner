@@ -25,5 +25,6 @@ public class Script {
     private boolean running;
     private int exitCode;
     private long executionStarted;
+    private long executionEnded;
 
 }

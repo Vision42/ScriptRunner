@@ -8,6 +8,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.io.IOException;
+import java.time.Instant;
 
 public class ScriptRunner implements Runnable {
     ScriptRepository scriptRepository;
@@ -24,6 +25,8 @@ public class ScriptRunner implements Runnable {
         try {
             script.setRunning(true);
             script.setExitCode(0);
+            script.setExecutionStarted(Instant.now().getEpochSecond());
+            script.setExecutionEnded(0);
             scriptRepository.saveAndFlush(script);
 
             ProcessBuilder processBuilder = new ProcessBuilder("bash", script.getPath());
@@ -32,6 +35,7 @@ public class ScriptRunner implements Runnable {
             int exitCode = process.waitFor();
             script.setRunning(false);
             script.setExitCode(exitCode);
+            script.setExecutionEnded(Instant.now().getEpochSecond());
             scriptRepository.saveAndFlush(script);
         } catch (IOException | InterruptedException e) {
             e.printStackTrace();
