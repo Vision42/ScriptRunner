@@ -20,7 +20,7 @@ public class Project {
     @GeneratedValue
     private int id;
     private String name;
-    @OneToMany(mappedBy = "project")
-    private Set<Script> scripts = new HashSet<>();
+    @OneToMany(mappedBy = "project", fetch = FetchType.LAZY)
+    private List<Script> scripts;
 
 }
