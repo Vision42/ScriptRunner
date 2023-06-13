@@ -4,14 +4,12 @@ import com.limmerlaboratories.scriptrunner.model.Script;
 import com.limmerlaboratories.scriptrunner.repository.ScriptRepository;
 import com.limmerlaboratories.scriptrunner.service.ScriptRunnerService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
+@CrossOrigin()
 @RequestMapping(path = "api/v1/script")
 public class ScriptController {
 

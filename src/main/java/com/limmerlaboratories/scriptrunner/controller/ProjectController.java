@@ -4,14 +4,12 @@ import com.limmerlaboratories.scriptrunner.model.Project;
 import com.limmerlaboratories.scriptrunner.model.Script;
 import com.limmerlaboratories.scriptrunner.repository.ProjectRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
+@CrossOrigin()
 @RequestMapping(path = "api/v1/project")
 public class ProjectController {
 
