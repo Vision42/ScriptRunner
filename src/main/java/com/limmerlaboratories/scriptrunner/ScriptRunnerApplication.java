@@ -22,6 +22,7 @@ public class ScriptRunnerApplication {
 
 			context.close();
 
+			System.out.println("Updating to latest Version... " + updateService.getCurrentVersion());
 			if (updateService.updateToLatestVersion()) {
 				System.out.println("Updated ScriptRunner to version: " + updateService.getLatestVersion());
 				System.exit(0);

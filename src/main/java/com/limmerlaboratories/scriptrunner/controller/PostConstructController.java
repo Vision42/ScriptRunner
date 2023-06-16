@@ -21,6 +21,7 @@ public class PostConstructController {
 
         if (updateService.checkForUpdate()) {
             log.info("Update to version " + updateService.getLatestVersion() + " is available");
+            log.info("Current version: " + updateService.getCurrentVersion());
         }
     }
 }
